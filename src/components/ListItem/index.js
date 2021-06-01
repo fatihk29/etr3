@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   itemLeftContainer: {
     flex: 13,
     flexDirection: 'row',
-    // backgroundColor: 'blue',
+    // backgroundColor: 'blu e',
   },
   itemRightContainer: {
     flex: 2,

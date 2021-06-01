@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, View, ScrollView, Image, StyleSheet} from 'react-native';
+import {Text, View, ScrollView, Image} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
+import styles from './style';
 
 function DetailPage(props) {
   const {itemId} = props.route.params;
@@ -12,7 +13,7 @@ function DetailPage(props) {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} />
+        <Image style={styles.image} source={{uri: selecteditemId.avatar}} />
       </View>
       <View style={styles.nameContainer}>
         <Text style={styles.name}>{selecteditemId.name}</Text>
@@ -27,44 +28,4 @@ function DetailPage(props) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-  },
-  imageContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    width: 300,
-    height: 300,
-  },
-  nameContainer: {
-    marginBottom: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  name: {
-    fontSize: 24,
-  },
-  jobContainer: {
-    marginBottom: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  job: {
-    fontSize: 18,
-    color: 'gray',
-  },
-  aboutContainer: {
-    margin: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  about: {
-    fontSize: 18,
-    color: 'gray',
-  },
-});
 export default DetailPage;

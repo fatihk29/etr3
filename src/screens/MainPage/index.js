@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Text, View, TouchableOpacity, FlatList} from 'react-native';
+import {Text, View, FlatList} from 'react-native';
 import DATA from '../../../data/dummy-data';
 import ListItem from '../../components/ListItem';
 

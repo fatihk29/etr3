@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import MainPage from '../screens/MainPage';
-import Detail from '../screens/Detail';
+import DetailPage from '../screens/DetailPage';
 
 const Stack = createStackNavigator();
 
@@ -11,7 +11,8 @@ function MyStack() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="MainPage" component={MainPage} />
-        <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="DetailPage" component={DetailPage} />
+        {/* <Stack.Screen name="AddNewChar" component={AddNewChar} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

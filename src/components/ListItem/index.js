@@ -8,7 +8,7 @@ const ListItem = props => {
       <TouchableOpacity
         style={styles.itemLeftContainer}
         onPress={() => {
-          props.navigation.navigate('Detail', {itemId: props.itemId});
+          props.navigation.navigate('DetailPage', {itemId: props.itemId});
         }}>
         <View style={styles.itemImageContainer}>
           <Image source={{uri: props.avatar}} style={styles.image} />

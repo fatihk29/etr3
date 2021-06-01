@@ -1,22 +1,14 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-  StyleSheet,
-} from 'react-native';
+import {Text, View, ScrollView, Image, StyleSheet} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 
-function Detail(props) {
+function DetailPage(props) {
   const {itemId} = props.route.params;
   console.log('7', itemId);
   const selecteditemId = useSelector(state =>
     state.products.availableProducts.find(prod => prod.id === itemId),
   );
   const dispatch = useDispatch();
-  // console.log('12', selecteditemId);
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>
@@ -75,4 +67,4 @@ const styles = StyleSheet.create({
     color: 'gray',
   },
 });
-export default Detail;
+export default DetailPage;

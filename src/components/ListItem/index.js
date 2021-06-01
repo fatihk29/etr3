@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import IconFA5 from 'react-native-vector-icons/dist/FontAwesome5';
 
 const ListItem = props => {
   return (

@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {Text, View, FlatList} from 'react-native';
 import DATA from '../../../data/dummy-data';
 import ListItem from '../../components/ListItem';

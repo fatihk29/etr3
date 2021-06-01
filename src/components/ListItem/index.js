@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image, StyleSheet} from 'react-native';
-import IconFA5 from 'react-native-vector-icons/dist/FontAwesome5';
+import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 
 const ListItem = props => {
   return (
@@ -8,7 +8,7 @@ const ListItem = props => {
       <TouchableOpacity
         style={styles.itemLeftContainer}
         onPress={() => {
-          console.log('sss1');
+          props.navigation.navigate('Detail');
         }}>
         <View style={styles.itemImageContainer}>
           <Image source={{uri: props.avatar}} style={styles.image} />
@@ -22,7 +22,7 @@ const ListItem = props => {
         onPress={() => {
           console.log('sss2');
         }}>
-        <Text>ss</Text>
+        <IconFA5 name="trash" size={20} />
       </TouchableOpacity>
     </View>
   );
@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 5,
     // backgroundColor: 'red',
+    borderBottomWidth: 0.4,
+    borderBottomColor: 'gray',
   },
   itemLeftContainer: {
     flex: 13,

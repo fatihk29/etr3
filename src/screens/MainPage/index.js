@@ -1,16 +1,17 @@
 import React from 'react';
-import {View, FlatList, TouchableOpacity} from 'react-native';
+import {View, FlatList, TouchableOpacity, Text} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import IconMCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import DATA from '../../../data/dummy-data';
 import ListItem from '../../components/ListItem';
-import styles from './style';
+import style from './style';
 
 function MainPage({navigation}) {
   const products = useSelector(state => state.products.availableProducts);
   const dispatch = useDispatch();
+
   return (
-    <View>
+    <View style={style.container}>
       <FlatList
         data={DATA}
         renderItem={({item}) => {
@@ -25,10 +26,12 @@ function MainPage({navigation}) {
         }}
         keyExtractor={item => item.id}
       />
-      <View style={styles.addBtn}>
-        <TouchableOpacity style={{}}>
-          <IconMCI name="plus" size={35} color="white" />
-        </TouchableOpacity>
+      <View style={style.addBtnContainer}>
+        <View style={style.addBtn}>
+          <TouchableOpacity style={{}}>
+            <IconMCI name="plus" size={35} color="white" />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

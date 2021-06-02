@@ -71,6 +71,60 @@ const DATA = [
     about:
       'Herbert "Herb" Powell is Homer Simpson\'s seldom-seen long-lost older paternal half-brother. He is around 37 years old. He was first mentioned by Abraham Simpson when Homer comes to his side after suffering a heart attack. Herbert is also the half-uncle of Bart, Lisa, and Maggie.',
   },
+  {
+    id: '6124',
+    name: 'Abraham Simpson II',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/a/a9/Abraham_Simpson.png/revision/latest/scale-to-width-down/302?cb=20201222214913',
+    job: 'Retired',
+    about:
+      "Abraham Jebediah ”Abe” Simpson II, commonly known as Grampa Simpson, or simply as Grampa is a major character in The Simpsons and a supporting character in The Simpsons Movie. He is the patriarch of the Simpson family, the father of Homer, Herbert and Abbey Simpson, father-in-law of Marge Simpson, and the paternal grandfather of Bart, Lisa, and Maggie Simpson. He is also the ex-boyfriend of Jacqueline Bouvier, his daughter-in-law's mother (which would have made Marge and Homer brother and sister in-laws)",
+  },
+  {
+    id: '721',
+    name: 'Abbey',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/1/12/Abbey_Tapped_Out.png/revision/latest/scale-to-width-down/176?cb=20191211083031',
+    job: 'Retired',
+    about:
+      "Abbey is the daughter of Edwina, a woman with whom Abraham Simpson briefly had a relationship while he was stationed in England during World War II. It is insinuated that Abbey is the result of that relationship, which would make her Abe's daughter and Homer's half-sister. She very much looks and acts similar to Homer.",
+  },
+  {
+    id: '81',
+    name: 'Herbert "Herb" Powell',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
+    job: 'Businessman',
+    about:
+      'Herbert "Herb" Powell is Homer Simpson\'s seldom-seen long-lost older paternal half-brother. He is around 37 years old. He was first mentioned by Abraham Simpson when Homer comes to his side after suffering a heart attack. Herbert is also the half-uncle of Bart, Lisa, and Maggie.',
+  },
+  {
+    id: '60',
+    name: 'Abraham Simpson II',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/a/a9/Abraham_Simpson.png/revision/latest/scale-to-width-down/302?cb=20201222214913',
+    job: 'Retired',
+    about:
+      "Abraham Jebediah ”Abe” Simpson II, commonly known as Grampa Simpson, or simply as Grampa is a major character in The Simpsons and a supporting character in The Simpsons Movie. He is the patriarch of the Simpson family, the father of Homer, Herbert and Abbey Simpson, father-in-law of Marge Simpson, and the paternal grandfather of Bart, Lisa, and Maggie Simpson. He is also the ex-boyfriend of Jacqueline Bouvier, his daughter-in-law's mother (which would have made Marge and Homer brother and sister in-laws)",
+  },
+  {
+    id: '0',
+    name: 'Abbey',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/1/12/Abbey_Tapped_Out.png/revision/latest/scale-to-width-down/176?cb=20191211083031',
+    job: 'Retired',
+    about:
+      "Abbey is the daughter of Edwina, a woman with whom Abraham Simpson briefly had a relationship while he was stationed in England during World War II. It is insinuated that Abbey is the result of that relationship, which would make her Abe's daughter and Homer's half-sister. She very much looks and acts similar to Homer.",
+  },
+  {
+    id: '80',
+    name: 'Herbert "Herb" Powell',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
+    job: 'Businessman',
+    about:
+      'Herbert "Herb" Powell is Homer Simpson\'s seldom-seen long-lost older paternal half-brother. He is around 37 years old. He was first mentioned by Abraham Simpson when Homer comes to his side after suffering a heart attack. Herbert is also the half-uncle of Bart, Lisa, and Maggie.',
+  },
 ];
 
 export default DATA;

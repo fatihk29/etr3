@@ -10,6 +10,10 @@ function MainPage({navigation}) {
   const products = useSelector(state => state.products.availableProducts);
   const dispatch = useDispatch();
 
+  function onPressAddBtn() {
+    navigation.navigate('AddNewChar');
+  }
+
   return (
     <View style={style.container}>
       <FlatList
@@ -28,7 +32,7 @@ function MainPage({navigation}) {
       />
       <View style={style.addBtnContainer}>
         <View style={style.addBtn}>
-          <TouchableOpacity style={{}}>
+          <TouchableOpacity onPress={onPressAddBtn}>
             <IconMCI name="plus" size={35} color="white" />
           </TouchableOpacity>
         </View>

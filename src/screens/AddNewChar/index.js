@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {ScrollView, Text, TextInput, TouchableOpacity} from 'react-native';
 import styles from './style';
 
 function AddNewChar() {
@@ -15,29 +15,29 @@ function AddNewChar() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Name Surname:</Text>
+    <ScrollView style={styles.container}>
+      <Text style={styles.titleText}>Name Surname:</Text>
       <TextInput
         placeholder="Name"
         style={styles.textinputName}
         onChangeText={text => setEnteredText({...enteredText, name: text})}
         value={enteredText.name}
       />
-      <Text>Job:</Text>
+      <Text style={styles.titleText}>Job:</Text>
       <TextInput
         placeholder="Job"
         style={styles.textinputJob}
         onChangeText={text => setEnteredText({...enteredText, job: text})}
         value={enteredText.job}
       />
-      <Text>About</Text>
+      <Text style={styles.titleText}>About</Text>
       <TextInput
         placeholder="About"
         style={styles.textinputAbout}
         onChangeText={text => setEnteredText({...enteredText, about: text})}
         value={enteredText.about}
       />
-      <Text>Link</Text>
+      <Text style={styles.titleText}>Link</Text>
       <TextInput
         placeholder="Link"
         style={styles.textinputLink}
@@ -49,7 +49,7 @@ function AddNewChar() {
         style={styles.addNewCharBtn}>
         <Text style={styles.addNewCharBtnText}>Add New Character</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 

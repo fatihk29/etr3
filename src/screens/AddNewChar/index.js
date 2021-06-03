@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {ScrollView, Text, TextInput, TouchableOpacity} from 'react-native';
+import {
+  Alert,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from './style';
 
@@ -13,8 +19,11 @@ function AddNewChar() {
   });
 
   function onPressAddNewCharBtn() {
-    console.log('14AA', 'pressed');
+    const id = JSON.stringify(Math.floor(Math.random() * 100000));
+    enteredText.id = id;
 
+    saveData(id, enteredText);
+    readData();
     setEnteredText({
       id: '',
       name: '',
@@ -24,12 +33,28 @@ function AddNewChar() {
     });
   }
 
-  const saveData = async () => {
+  const saveData = async id => {
+    console.log('37', enteredText);
     try {
-      await AsyncStorage.setItem(STORAGE_KEY, age);
-      alert('Data successfully saved');
+      await AsyncStorage.setItem(id, JSON.stringify(enteredText));
+      Alert.alert('The Record successfully saved.');
     } catch (e) {
-      alert('Failed to save the data to the storage');
+      Alert.alert('Failed to save the data to the storage');
+    }
+  };
+
+  const readData = async () => {
+    try {
+      const result = {};
+      const keys = await AsyncStorage.getAllKeys();
+      for (const key of keys) {
+        const val = await AsyncStorage.getItem(key);
+        result[key] = val;
+        console.log(JSON.parse(result[key]));
+      }
+      return result;
+    } catch (error) {
+      alert(error);
     }
   };
 

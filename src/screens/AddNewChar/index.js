@@ -12,6 +12,13 @@ function AddNewChar() {
 
   function onPressAddNewCharBtn() {
     console.log('14AA', 'pressed');
+
+    setEnteredText({
+      name: '',
+      job: '',
+      about: '',
+      avatar: '',
+    });
   }
 
   return (

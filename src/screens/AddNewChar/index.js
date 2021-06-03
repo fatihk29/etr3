@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {ScrollView, Text, TextInput, TouchableOpacity} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import styles from './style';
 
 function AddNewChar() {
   const [enteredText, setEnteredText] = useState({
+    id: '',
     name: '',
     job: '',
     about: '',
@@ -14,12 +16,22 @@ function AddNewChar() {
     console.log('14AA', 'pressed');
 
     setEnteredText({
+      id: '',
       name: '',
       job: '',
       about: '',
       avatar: '',
     });
   }
+
+  const saveData = async () => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, age);
+      alert('Data successfully saved');
+    } catch (e) {
+      alert('Failed to save the data to the storage');
+    }
+  };
 
   return (
     <ScrollView style={styles.container}>

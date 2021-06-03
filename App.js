@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-const App = () => {
+const App = props => {
   return (
     <Provider store={store}>
       <MainNavigator />

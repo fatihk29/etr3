@@ -3,6 +3,8 @@ import {Text, View, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 
 const ListItem = props => {
+  function onPressItemDeleteBtn() {}
+
   return (
     <View style={styles.itemContainer}>
       <TouchableOpacity
@@ -19,9 +21,7 @@ const ListItem = props => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.itemRightContainer}
-        onPress={() => {
-          console.log('sss2');
-        }}>
+        onPress={onPressItemDeleteBtn}>
         <IconFA5 name="trash" size={20} />
       </TouchableOpacity>
     </View>
@@ -35,24 +35,20 @@ const styles = StyleSheet.create({
     height: 70,
     marginHorizontal: 10,
     marginVertical: 5,
-    // backgroundColor: 'red',
     borderBottomWidth: 0.4,
     borderBottomColor: 'gray',
   },
   itemLeftContainer: {
     flex: 13,
     flexDirection: 'row',
-    // backgroundColor: 'blue',
   },
   itemRightContainer: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'green',
   },
   itemImageContainer: {
     flex: 2,
-    // backgroundColor: 'yellow',
   },
   nameContainer: {
     flex: 8,

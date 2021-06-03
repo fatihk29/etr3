@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, FlatList, TouchableOpacity, Text} from 'react-native';
+import {View, FlatList, TouchableOpacity} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import IconMCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import DATA from '../../../data/dummy-data';

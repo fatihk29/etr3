@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'gray',
     borderRadius: 10,
+    textAlignVertical: 'top',
+    textAlign: 'left',
   },
   textinputLink: {
     width: width - 20,

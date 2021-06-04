@@ -10,14 +10,6 @@ import AddNewChar from '../screens/AddNewChar';
 const Stack = createStackNavigator();
 
 function StackNavigator() {
-  function HeaderMidTitle({title}) {
-    return (
-      <View style={style.midHeader}>
-        <Text style={style.midHeaderText}>{title}</Text>
-      </View>
-    );
-  }
-
   function HeaderLeftTitle({navigation}) {
     return (
       <View style={style.leftHeaderContainer}>
@@ -29,6 +21,13 @@ function StackNavigator() {
             <Text style={style.leftHeaderText}>Simpsons</Text>
           </View>
         </TouchableOpacity>
+      </View>
+    );
+  }
+  function HeaderMidTitle({title}) {
+    return (
+      <View style={style.midHeader}>
+        <Text style={style.midHeaderText}>{title}</Text>
       </View>
     );
   }
@@ -57,18 +56,7 @@ function StackNavigator() {
           component={AddNewChar}
           options={({navigation}) => ({
             headerTitle: () => <HeaderMidTitle title={'Add New Character'} />,
-            headerLeft: () => (
-              <View style={style.leftHeaderContainer}>
-                <TouchableOpacity
-                  onPress={() => navigation.goBack()}
-                  style={style.leftHeader}>
-                  <View style={style.subContainer}>
-                    <IconFA5 name="angle-left" size={20} color="#6495ED" />
-                    <Text style={style.leftHeaderText}>Simpsons</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            ),
+            headerLeft: () => <HeaderLeftTitle navigation={navigation} />,
             headerRight: () => <View />,
           })}
         />
@@ -87,7 +75,7 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
   },
   leftHeader: {
-    marginLeft: 10,
+    marginLeft: 5,
   },
   leftHeaderText: {
     marginLeft: 3,

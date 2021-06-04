@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -19,14 +19,18 @@ function StackNavigator() {
           name="AddNewChar"
           component={AddNewChar}
           options={({navigation}) => ({
-            headerTitle: () => <Text>Add New Char</Text>,
+            headerTitle: () => (
+              <View style={style.midHeader}>
+                <Text style={style.midHeaderText}>Add New Char</Text>
+              </View>
+            ),
             headerLeft: () => (
               <TouchableOpacity
                 onPress={() => navigation.goBack()}
-                style={{marginLeft: 10}}>
+                style={style.leftHeader}>
                 <View style={{flexDirection: 'row'}}>
-                  <IconFA5 name="angle-left" size={20} />
-                  <Text style={{color: 'blue'}}>Simpsonss</Text>
+                  <IconFA5 name="angle-left" size={20} color="blue" />
+                  <Text style={style.leftHeaderText}>Simpsons</Text>
                 </View>
               </TouchableOpacity>
             ),
@@ -36,5 +40,24 @@ function StackNavigator() {
     </NavigationContainer>
   );
 }
+
+const style = StyleSheet.create({
+  midHeader: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'green',
+  },
+  midHeaderText: {
+    fontSize: 20,
+  },
+  leftHeader: {
+    position: 'relative',
+    marginLeft: 5,
+  },
+  leftHeaderText: {
+    color: 'blue',
+    zIndex: 1,
+  },
+});
 
 export default StackNavigator;

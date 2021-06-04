@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -16,6 +10,29 @@ import AddNewChar from '../screens/AddNewChar';
 const Stack = createStackNavigator();
 
 function StackNavigator() {
+  function HeaderMidTitle({title}) {
+    return (
+      <View style={style.midHeader}>
+        <Text style={style.midHeaderText}>{title}</Text>
+      </View>
+    );
+  }
+
+  function HeaderLeftTitle({navigation}) {
+    return (
+      <View style={style.leftHeaderContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={style.leftHeader}>
+          <View style={style.subContainer}>
+            <IconFA5 name="angle-left" size={20} color="#6495ED" />
+            <Text style={style.leftHeaderText}>Simpsons</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -23,34 +40,15 @@ function StackNavigator() {
           name="MainPage"
           component={MainPage}
           options={() => ({
-            headerTitle: () => (
-              <View style={style.midHeader}>
-                <Text style={style.midHeaderText}>Simpsons</Text>
-              </View>
-            ),
+            headerTitle: () => <HeaderMidTitle title={'Simpsons'} />,
           })}
         />
         <Stack.Screen
           name="DetailPage"
           component={DetailPage}
           options={({navigation}) => ({
-            headerTitle: () => (
-              <View style={style.midHeader}>
-                <Text style={style.midHeaderText}>Detail</Text>
-              </View>
-            ),
-            headerLeft: () => (
-              <View style={style.leftHeaderContainer}>
-                <TouchableOpacity
-                  onPress={() => navigation.goBack()}
-                  style={style.leftHeader}>
-                  <View style={style.subContainer}>
-                    <IconFA5 name="angle-left" size={20} color="#6495ED" />
-                    <Text style={style.leftHeaderText}>Simpsons</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            ),
+            headerTitle: () => <HeaderMidTitle title={'Detail'} />,
+            headerLeft: () => <HeaderLeftTitle navigation={navigation} />,
             headerRight: () => <View />,
           })}
         />
@@ -58,11 +56,7 @@ function StackNavigator() {
           name="AddNewChar"
           component={AddNewChar}
           options={({navigation}) => ({
-            headerTitle: () => (
-              <View style={style.midHeader}>
-                <Text style={style.midHeaderText}>Add New Character</Text>
-              </View>
-            ),
+            headerTitle: () => <HeaderMidTitle title={'Add New Character'} />,
             headerLeft: () => (
               <View style={style.leftHeaderContainer}>
                 <TouchableOpacity

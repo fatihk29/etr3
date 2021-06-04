@@ -45,16 +45,19 @@ function AddNewChar() {
 
   const readData = async () => {
     try {
+      let lists = [];
       const result = {};
       const keys = await AsyncStorage.getAllKeys();
       for (const key of keys) {
         const val = await AsyncStorage.getItem(key);
         result[key] = val;
         console.log(JSON.parse(result[key]));
+        lists.push(JSON.parse(result[key]));
       }
+      console.log('57', lists);
       return result;
     } catch (error) {
-      alert(error);
+      Alert.alert(error);
     }
   };
 

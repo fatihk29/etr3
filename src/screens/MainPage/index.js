@@ -1,12 +1,41 @@
-import React from 'react';
-import {View, FlatList, TouchableOpacity} from 'react-native';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
+import {View, FlatList, TouchableOpacity, Alert} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import IconMCI from 'react-native-vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-community/async-storage';
 import DATA from '../../../data/dummy-data';
 import ListItem from '../../components/ListItem';
 import style from './style';
 
+const data2 = [
+  {
+    about: '',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
+    id: '36821',
+    job: '',
+    name: 'fatih',
+  },
+  {
+    about: '',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
+    id: '82103',
+    job: '',
+    name: 'aaaaa',
+  },
+  {
+    about: '',
+    avatar:
+      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
+    id: '88020',
+    job: '',
+    name: 'aaaa',
+  },
+];
+
 function MainPage({navigation}) {
+  const [recordedData, setRecordedData] = useState();
   const products = useSelector(state => state.products.availableProducts);
   const dispatch = useDispatch();
 
@@ -14,10 +43,34 @@ function MainPage({navigation}) {
     navigation.navigate('AddNewChar');
   }
 
+  useEffect(() => {
+    const storage = async () => {
+      let items = await readData();
+      setRecordedData(items);
+    };
+    storage();
+  }, [navigation]);
+
+  const readData = async () => {
+    try {
+      let lists = [];
+      const result = {};
+      const keys = await AsyncStorage.getAllKeys();
+      for (const key of keys) {
+        const val = await AsyncStorage.getItem(key);
+        result[key] = val;
+        lists.push(JSON.parse(result[key]));
+      }
+      console.log('33--', lists);
+      return lists;
+    } catch (error) {
+      Alert.alert(error);
+    }
+  };
   return (
     <View style={style.container}>
       <FlatList
-        data={DATA}
+        data={recordedData}
         renderItem={({item}) => {
           return (
             <ListItem

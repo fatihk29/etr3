@@ -9,7 +9,7 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from './style';
 
-function AddNewChar() {
+function AddNewChar({navigation}) {
   const [enteredText, setEnteredText] = useState({
     id: '',
     name: '',
@@ -21,9 +21,7 @@ function AddNewChar() {
   function onPressAddNewCharBtn() {
     const id = JSON.stringify(Math.floor(Math.random() * 100000));
     enteredText.id = id;
-
     saveData(id, enteredText);
-    readData();
     setEnteredText({
       id: '',
       name: '',
@@ -31,35 +29,33 @@ function AddNewChar() {
       about: '',
       avatar: '',
     });
+    navigation.push('MainPage');
   }
 
   const saveData = async id => {
-    console.log('37', enteredText);
     try {
       await AsyncStorage.setItem(id, JSON.stringify(enteredText));
-      Alert.alert('The Record successfully saved.');
+      // Alert.alert('The Record successfully saved.');
     } catch (e) {
       Alert.alert('Failed to save the data to the storage');
     }
   };
 
-  const readData = async () => {
-    try {
-      let lists = [];
-      const result = {};
-      const keys = await AsyncStorage.getAllKeys();
-      for (const key of keys) {
-        const val = await AsyncStorage.getItem(key);
-        result[key] = val;
-        console.log(JSON.parse(result[key]));
-        lists.push(JSON.parse(result[key]));
-      }
-      console.log('57', lists);
-      return result;
-    } catch (error) {
-      Alert.alert(error);
-    }
-  };
+  // const readData = async () => {
+  //   try {
+  //     let lists = [];
+  //     const result = {};
+  //     const keys = await AsyncStorage.getAllKeys();
+  //     for (const key of keys) {
+  //       const val = await AsyncStorage.getItem(key);
+  //       result[key] = val;
+  //       lists.push(JSON.parse(result[key]));
+  //     }
+  //     return result;
+  //   } catch (error) {
+  //     Alert.alert(error);
+  //   }
+  // };
 
   return (
     <ScrollView style={styles.container}>

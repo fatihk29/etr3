@@ -14,7 +14,7 @@ function StackNavigator() {
     return (
       <View style={style.leftHeaderContainer}>
         <TouchableOpacity
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.goBack('MainPage')}
           style={style.leftHeader}>
           <View style={style.subContainer}>
             <IconFA5 name="angle-left" size={20} color="#6495ED" />
@@ -39,15 +39,17 @@ function StackNavigator() {
           name="MainPage"
           component={MainPage}
           options={() => ({
+            headerLeft: () => <View />,
             headerTitle: () => <HeaderMidTitle title={'Simpsons'} />,
+            headerRight: () => <View />,
           })}
         />
         <Stack.Screen
           name="DetailPage"
           component={DetailPage}
           options={({navigation}) => ({
-            headerTitle: () => <HeaderMidTitle title={'Detail'} />,
             headerLeft: () => <HeaderLeftTitle navigation={navigation} />,
+            headerTitle: () => <HeaderMidTitle title={'Detail'} />,
             headerRight: () => <View />,
           })}
         />
@@ -55,8 +57,8 @@ function StackNavigator() {
           name="AddNewChar"
           component={AddNewChar}
           options={({navigation}) => ({
-            headerTitle: () => <HeaderMidTitle title={'Add New Character'} />,
             headerLeft: () => <HeaderLeftTitle navigation={navigation} />,
+            headerTitle: () => <HeaderMidTitle title={'Add New Character'} />,
             headerRight: () => <View />,
           })}
         />

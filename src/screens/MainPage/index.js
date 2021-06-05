@@ -1,13 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import {View, FlatList, TouchableOpacity, Alert} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
+// import {useSelector, useDispatch} from 'react-redux';
 import IconMCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-community/async-storage';
 import DATA from '../../../data/dummy-data';
 import ListItem from '../../components/ListItem';
 import style from './style';
 
-console.log(DATA);
+const saveData = async item => {
+  try {
+    await AsyncStorage.setItem(item.id, JSON.stringify(item));
+    // Alert.alert('The Record successfully saved.');
+  } catch (e) {
+    Alert.alert('Failed to save the data to the storage');
+  }
+};
+
+function ss(data) {
+  data.map((item, index) => {
+    console.log(item.id, item);
+    saveData(item);
+  });
+}
+
+ss(DATA);
 
 function MainPage({navigation}) {
   const [recordedData, setRecordedData] = useState();

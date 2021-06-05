@@ -1,4 +1,4 @@
-import {ADD_NEW_CHAR} from '../actions/cart';
+import {ADD_NEW_CHAR} from '../actions/makeItem';
 import Item from '../../models/item';
 
 const initialState = {

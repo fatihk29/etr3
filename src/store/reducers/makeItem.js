@@ -1,5 +1,5 @@
 import {ADD_NEW_CHAR} from '../actions/makeItem';
-import Item from '../../models/item';
+import Item from '../../../models/item';
 
 const initialState = {
   items: {},

@@ -22,11 +22,9 @@ function AddNewChar({navigation}) {
   function onPressAddNewCharBtn() {
     enteredText.id = JSON.stringify(Math.floor(Math.random() * 100000) + 10);
     enteredText.createdDate = new Date();
-    if (enteredText.link === undefined) {
-      enteredText.link =
-        'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654';
+    if (enteredText.name === '') {
+      return Alert.alert('Name Required');
     }
-    console.log('29', enteredText);
     saveData(enteredText.id, enteredText);
     //Clean all TextInputs
     setEnteredText({

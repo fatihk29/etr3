@@ -41,7 +41,13 @@ function StackNavigator() {
           options={() => ({
             headerLeft: () => <View />,
             headerTitle: () => <HeaderMidTitle title={'Simpsons'} />,
-            headerRight: () => <View />,
+            headerRight: props => (
+              <TouchableOpacity style={style.leftHeader}>
+                <View style={style.subContainer}>
+                  <IconFA5 name="angle-left" size={20} color="#6495ED" />
+                </View>
+              </TouchableOpacity>
+            ),
           })}
         />
         <Stack.Screen

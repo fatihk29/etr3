@@ -16,13 +16,13 @@ const saveData = async item => {
   }
 };
 
-function ss(data) {
+function saveInitialDataToStorage(data) {
   data.map((item, _) => {
     saveData(item);
   });
 }
 
-ss(DATA);
+saveInitialDataToStorage(DATA);
 
 function MainPage({navigation}) {
   const [recordedData, setRecordedData] = useState();

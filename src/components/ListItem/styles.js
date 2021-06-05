@@ -23,6 +23,8 @@ const styles = StyleSheet.create({
     flex: 2,
     borderRightWidth: 0.8,
     borderRightColor: '#6495ED',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   nameContainer: {
     flex: 8,

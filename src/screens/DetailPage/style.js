@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: 'contain',
     marginVertical: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   nameContainer: {
     marginBottom: 8,

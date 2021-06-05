@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
+import IconMCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './styles';
 
 const ListItem = props => {
@@ -14,7 +15,9 @@ const ListItem = props => {
         <View style={styles.itemImageContainer}>
           {props.avatar ? (
             <Image source={{uri: props.avatar}} style={styles.image} />
-          ) : null}
+          ) : (
+            <IconMCI name="image-off-outline" size={20} style={styles.icon} />
+          )}
         </View>
         <View style={styles.nameContainer}>
           <Text style={styles.name}>{props.name}</Text>

@@ -79,7 +79,7 @@ function MainPage({navigation}) {
           return (
             <ListItem
               name={item.name}
-              avatar={item.avatar || 's'}
+              avatar={item.avatar}
               itemId={item.id}
               navigation={navigation}
               onPressDelete={() => onPressDelete(item.id)}

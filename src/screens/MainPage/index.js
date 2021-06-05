@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, FlatList, TouchableOpacity, Alert} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import IconMCI from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -6,33 +6,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import DATA from '../../../data/dummy-data';
 import ListItem from '../../components/ListItem';
 import style from './style';
-
-const data2 = [
-  {
-    about: '',
-    avatar:
-      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
-    id: '36821',
-    job: '',
-    name: 'fatih',
-  },
-  {
-    about: '',
-    avatar:
-      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
-    id: '82103',
-    job: '',
-    name: 'aaaaa',
-  },
-  {
-    about: '',
-    avatar:
-      'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654',
-    id: '88020',
-    job: '',
-    name: 'aaaa',
-  },
-];
 
 function MainPage({navigation}) {
   const [recordedData, setRecordedData] = useState();
@@ -67,6 +40,20 @@ function MainPage({navigation}) {
       Alert.alert(error);
     }
   };
+
+  function onPressDelete(key) {
+    removeItem(key);
+  }
+
+  async function removeItem(key) {
+    try {
+      await AsyncStorage.removeItem(key);
+      return true;
+    } catch (exception) {
+      return false;
+    }
+  }
+
   return (
     <View style={style.container}>
       <FlatList
@@ -75,9 +62,10 @@ function MainPage({navigation}) {
           return (
             <ListItem
               name={item.name}
-              avatar={item.avatar}
+              avatar={item.avatar || 's'}
               itemId={item.id}
               navigation={navigation}
+              onPressDelete={() => onPressDelete(item.id)}
             />
           );
         }}

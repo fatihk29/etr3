@@ -5,7 +5,6 @@ import styles from './style';
 
 function DetailPage(props) {
   const {itemId} = props.route.params;
-  console.log('7', itemId);
   const selecteditemId = useSelector(state =>
     state.products.availableProducts.find(prod => prod.id === itemId),
   );

@@ -16,18 +16,26 @@ function AddNewChar({navigation}) {
     job: '',
     about: '',
     avatar: '',
+    createdDate: '',
   });
 
   function onPressAddNewCharBtn() {
-    const id = JSON.stringify(Math.floor(Math.random() * 100000));
-    enteredText.id = id;
-    saveData(id, enteredText);
+    enteredText.id = JSON.stringify(Math.floor(Math.random() * 100000));
+    enteredText.createdDate = new Date();
+    if (enteredText.link === undefined) {
+      enteredText.link =
+        'https://static.wikia.nocookie.net/simpsons/images/1/18/Herb_Powelll.png/revision/latest/scale-to-width-down/192?cb=20200708052654';
+    }
+    console.log('29', enteredText);
+    saveData(enteredText.id, enteredText);
+    //Clean all TextInputs
     setEnteredText({
       id: '',
       name: '',
       job: '',
       about: '',
       avatar: '',
+      date: '',
     });
     navigation.push('MainPage');
   }
@@ -40,22 +48,6 @@ function AddNewChar({navigation}) {
       Alert.alert('Failed to save the data to the storage');
     }
   };
-
-  // const readData = async () => {
-  //   try {
-  //     let lists = [];
-  //     const result = {};
-  //     const keys = await AsyncStorage.getAllKeys();
-  //     for (const key of keys) {
-  //       const val = await AsyncStorage.getItem(key);
-  //       result[key] = val;
-  //       lists.push(JSON.parse(result[key]));
-  //     }
-  //     return result;
-  //   } catch (error) {
-  //     Alert.alert(error);
-  //   }
-  // };
 
   return (
     <ScrollView style={styles.container}>

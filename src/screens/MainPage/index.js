@@ -7,10 +7,12 @@ import DATA from '../../../data/dummy-data';
 import ListItem from '../../components/ListItem';
 import style from './style';
 
+console.log(DATA);
+
 function MainPage({navigation}) {
   const [recordedData, setRecordedData] = useState();
-  const products = useSelector(state => state.products.availableProducts);
-  const dispatch = useDispatch();
+  // const products = useSelector(state => state.products.availableProducts);
+  // const dispatch = useDispatch();
 
   function onPressAddBtn() {
     navigation.navigate('AddNewChar');
@@ -34,7 +36,7 @@ function MainPage({navigation}) {
         result[key] = val;
         lists.push(JSON.parse(result[key]));
       }
-      console.log('33--', lists);
+      // console.log('33--', lists);
       return lists;
     } catch (error) {
       Alert.alert(error);
@@ -42,6 +44,7 @@ function MainPage({navigation}) {
   };
 
   function onPressDelete(key) {
+    navigation.push('MainPage');
     removeItem(key);
   }
 

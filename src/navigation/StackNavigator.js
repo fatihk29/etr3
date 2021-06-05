@@ -14,7 +14,7 @@ function StackNavigator() {
     return (
       <View style={style.leftHeaderContainer}>
         <TouchableOpacity
-          onPress={() => navigation.goBack('MainPage')}
+          onPress={() => navigation.push('MainPage')}
           style={style.leftHeader}>
           <View style={style.subContainer}>
             <IconFA5 name="angle-left" size={20} color="#6495ED" />

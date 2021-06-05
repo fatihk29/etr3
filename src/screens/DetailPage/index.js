@@ -4,11 +4,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import styles from './style';
 
 function DetailPage(props) {
-  const {itemId} = props.route.params;
-  const selecteditemId = useSelector(state =>
-    state.products.availableProducts.find(prod => prod.id === itemId),
-  );
-  const dispatch = useDispatch();
+  // const {itemId} = props.route.params;
+  // const selecteditemId = useSelector(state =>
+  //   state.products.availableProducts.find(prod => prod.id === itemId),
+  // );
+  // const dispatch = useDispatch();
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>

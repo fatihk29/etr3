@@ -20,7 +20,7 @@ function AddNewChar({navigation}) {
   });
 
   function onPressAddNewCharBtn() {
-    enteredText.id = JSON.stringify(Math.floor(Math.random() * 100000));
+    enteredText.id = JSON.stringify(Math.floor(Math.random() * 100000) + 10);
     enteredText.createdDate = new Date();
     if (enteredText.link === undefined) {
       enteredText.link =
@@ -35,7 +35,7 @@ function AddNewChar({navigation}) {
       job: '',
       about: '',
       avatar: '',
-      date: '',
+      createdDate: '',
     });
     navigation.push('MainPage');
   }

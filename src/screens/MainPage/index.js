@@ -17,8 +17,7 @@ const saveData = async item => {
 };
 
 function ss(data) {
-  data.map((item, index) => {
-    console.log(item.id, item);
+  data.map((item, _) => {
     saveData(item);
   });
 }
@@ -52,7 +51,6 @@ function MainPage({navigation}) {
         result[key] = val;
         lists.push(JSON.parse(result[key]));
       }
-      // console.log('33--', lists);
       return lists;
     } catch (error) {
       Alert.alert(error);

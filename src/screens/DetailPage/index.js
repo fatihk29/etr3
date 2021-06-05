@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, ScrollView, Image, Alert} from 'react-native';
 // import {useSelector, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -6,17 +6,21 @@ import styles from './style';
 
 function DetailPage(props) {
   const {itemId} = props.route.params;
+  const [selectedItem, setSelectedItem] = useState({});
 
-  const readData = async getSelectedItemID => {
+  const readData = async itemId_ => {
     try {
-      const getSelectedItem = await AsyncStorage.getItem(getSelectedItemID);
-      // console.log('33--', getSelectedItem);
-      return getSelectedItem;
+      const value = await AsyncStorage.getItem(itemId_);
+      setSelectedItem(JSON.parse(value));
     } catch (error) {
       Alert.alert(error);
     }
   };
-  readData(itemId);
+
+  useEffect(() => {
+    readData(itemId);
+  }, [itemId]);
+
   // Do Not Forget import expression above !!!!
   // const selecteditemId = useSelector(state =>
   //   state.products.availableProducts.find(prod => prod.id === itemId),
@@ -24,18 +28,18 @@ function DetailPage(props) {
   // const dispatch = useDispatch();
   return (
     <ScrollView style={styles.container}>
-      {/* <View style={styles.imageContainer}>
-        <Image style={styles.image} source={{uri: selecteditemId.avatar}} />
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={{uri: selectedItem.avatar}} />
       </View>
       <View style={styles.nameContainer}>
-        <Text style={styles.name}>{selecteditemId.name}</Text>
+        <Text style={styles.name}>{selectedItem.id}</Text>
       </View>
       <View style={styles.jobContainer}>
-        <Text style={styles.job}>{selecteditemId.job}</Text>
+        <Text style={styles.job}>{selectedItem.job}</Text>
       </View>
       <View style={styles.aboutContainer}>
-        <Text style={styles.about}>{selecteditemId.about}</Text>
-      </View> */}
+        <Text style={styles.about}>{selectedItem.about}</Text>
+      </View>
     </ScrollView>
   );
 }
